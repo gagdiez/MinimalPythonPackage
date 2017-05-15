@@ -1,0 +1,20 @@
+#!/usr/bin/env python
+''' Command Line Interface for word_count '''
+import argparse
+from phds.cli import flip_text
+
+if __name__ == "__main__":
+
+    # Parser
+    parser = argparse.ArgumentParser(description="Counts the number of words \
+                                                  in a text file")
+
+    parser.add_argument('-i', required=True, type=str,
+                        help='Input text file')
+
+    parser.add_argument('-o', required=True, type=str,
+                        help='Output text file')
+
+    args = parser.parse_args()
+
+    flip_text.flip_text(args.i, args.o)
